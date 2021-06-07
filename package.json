@@ -1,0 +1,59 @@
+{
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "web": "vite build --mode web",
+    "lint": "eslint --quiet --no-error-on-unmatched-pattern --fix \"src/**/*.{ts,js,vue,tsx}\" && npm run lint:style",
+    "lint:style": "stylelint --allow-empty-input src/**/*.{css,scss,vue}",
+    "build": "vue-tsc --noEmit && vite build",
+    "preinstall": "node ./scripts/checkYarn.js"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.14.4",
+    "@intlify/vite-plugin-vue-i18n": "^2.2.0",
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
+    "@vue/babel-plugin-jsx": "^1.0.6",
+    "@vue/compiler-sfc": "^3.0.5",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.10.0",
+    "prettier": "^2.3.1",
+    "sass": "^1.32.5",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^10.0.0",
+    "stylelint-config-prettier": "^6.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.11.1",
+    "typescript": "^4.1.3",
+    "vite": "^2.3.5",
+    "vite-plugin-components": "^0.10.4",
+    "vite-svg-loader": "^2.0.2",
+    "vue-tsc": "^0.0.24"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "npm run lint:style",
+      "git add"
+    ]
+  }
+}
