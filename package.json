@@ -28,6 +28,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.10.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
     "sass": "^1.32.5",
     "sass-loader": "^8.0.2",
@@ -40,7 +41,8 @@
     "vite": "^2.3.5",
     "vite-plugin-components": "^0.10.4",
     "vite-svg-loader": "^2.0.2",
-    "vue-tsc": "^0.0.24"
+    "vue-tsc": "^0.0.24",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
