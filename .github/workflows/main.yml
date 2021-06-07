@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [main dev]
+    branches: [main]
   pull_request:
-    branches: [main dev]
+    branches: [main]
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
+      - run: yarn
       - run: yarn run lint
       - name: Codecov
         uses: codecov/codecov-action@v1.0.13
